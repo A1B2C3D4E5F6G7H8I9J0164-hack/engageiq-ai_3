@@ -1,3 +1,3 @@
-"""LLM-powered agent that suggests pedagogical interventions based on engagement data."""
+"""LLM agent for engagement interventions."""
 
 # TODO: Implement
