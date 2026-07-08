@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.config.settings import settings
+from src.api.websocket import router as websocket_router
 
 app = FastAPI(
     title="EngageIQ AI",
@@ -18,6 +19,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# WebSocket endpoint for real-time frame streaming (Issue #5)
+app.include_router(websocket_router)
 
 
 @app.get("/health")
