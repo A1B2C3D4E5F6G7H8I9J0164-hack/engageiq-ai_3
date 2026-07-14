@@ -389,7 +389,7 @@ async def websocket_endpoint(
             except ValueError as exc:
                 await websocket.send_json({"type": "error", "message": str(exc)})
                 continue
-            except Exception as exc:  # noqa: BLE001
+            except Exception:  # noqa: BLE001
                 logger.exception(
                     "Unexpected error processing frame — session=%s student=%s",
                     session_id,
@@ -412,7 +412,7 @@ async def websocket_endpoint(
             student_id,
             exc.code,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception:  # noqa: BLE001
         logger.exception(
             "Unhandled error in WebSocket loop — session=%s student=%s",
             session_id,

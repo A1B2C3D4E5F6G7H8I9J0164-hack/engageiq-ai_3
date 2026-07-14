@@ -15,13 +15,15 @@ Run with:
     pytest tests/test_websocket.py -v
 """
 
-import asyncio
 import base64
 import json
 
 import numpy as np
+# pyrefly: ignore [missing-import]
 import pytest
+# pyrefly: ignore [missing-import]
 from fastapi.testclient import TestClient
+# pyrefly: ignore [missing-import]
 from starlette.testclient import WebSocketTestSession
 
 from src.api.main import app
