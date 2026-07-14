@@ -17,6 +17,8 @@ import time
 from typing import Any, Dict, Optional
 
 import numpy as np
+
+# pyrefly: ignore [missing-import]
 from fastapi import APIRouter, Query, WebSocket, WebSocketDisconnect, status
 
 from src.pipeline.preprocessor import FramePreprocessor
@@ -260,6 +262,7 @@ class FrameProcessor:
 def _try_imdecode(buffer: np.ndarray) -> Optional[np.ndarray]:
     """Attempt OpenCV JPEG/PNG decode; return None if it fails."""
     try:
+        # pyrefly: ignore [missing-import]
         import cv2  # local import to avoid hard dep in unit tests
 
         img = cv2.imdecode(buffer, cv2.IMREAD_COLOR)
