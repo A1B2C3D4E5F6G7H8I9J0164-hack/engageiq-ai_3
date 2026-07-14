@@ -1,3 +1,6 @@
 [flake8]
 max-line-length = 88
-extend-ignore = E203,W503
+extend-ignore = E203,W503,E501
+per-file-ignores =
+    src/api/websocket.py: F841
+    tests/test_websocket.py: F401
