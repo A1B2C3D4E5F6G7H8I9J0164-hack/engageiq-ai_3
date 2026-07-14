@@ -1,0 +1,25 @@
+# CI-only requirements: excludes heavy ML deps (tensorflow, mediapipe, ultralytics)
+# that exceed GitHub Actions runner memory/time limits.
+# Full requirements.txt is used in production Docker builds.
+
+# Backend (needed for tests to run)
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+websockets>=12.0
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+python-multipart>=0.0.9
+python-dotenv>=1.0.1
+httpx>=0.27.0
+
+# Computer vision (lightweight only — no mediapipe/tensorflow/ultralytics)
+opencv-python-headless>=4.9.0
+numpy>=1.26.0
+pillow>=10.3.0
+
+# Development & CI tools (pinned to match pre-commit hooks)
+pytest>=8.2.0
+pytest-asyncio>=0.23.0
+black==24.4.2
+isort==5.13.2
+flake8>=7.0.0
