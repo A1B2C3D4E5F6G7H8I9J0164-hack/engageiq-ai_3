@@ -8,9 +8,10 @@ from sqlalchemy.orm import Session
 from src.config.settings import PrivacyMode, UserRole
 from src.models import Base, Course, User
 
-DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/engageiq_dev"
+# DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/engageiq_dev"
 
-engine = create_engine(DATABASE_URL)
+# engine = create_engine(DATABASE_URL)
+engine = create_engine("sqlite:///:memory:")
 
 
 @pytest.fixture(scope="module", autouse=True)
